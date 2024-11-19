@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.1.2",
+    "@capacitor/camera": "6.1.0",
+    "@capacitor/core": "6.1.2",
+    "@capacitor/splash-screen": "6.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.1.2",
+    "vite": "5.4.11"
+  }
+}
