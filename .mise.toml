@@ -1,3 +1,5 @@
 [tools]
 node = "20.18.0"
 android-sdk = "16.0"
+scaleway-cli = "2.34.0"
+direnv = "2.35.0"

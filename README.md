@@ -13,7 +13,7 @@ On Fedora, follow these instructions:
 ```sh
 $ dnf install -y dnf-plugins-core
 $ dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
-$ dnf install -y mise yq java-21-openjdk-devel java-21-openjdk
+$ dnf install -y mise jq yq java-21-openjdk-devel java-21-openjdk remmina remmina-plugins-vnc
 ```
 
 ## Getting started
@@ -53,3 +53,37 @@ $ npm install
 $ npx cap sync
 $ npx cap run android
 ```
+
+### iOS requirements installation
+
+```
+$ cp .secret.tmpl .secret
+```
+
+Add parameters to `.secret` file.  
+Reload variable env:
+
+```sh
+$ direnv allow
+```
+
+```sh
+$ ./scripts/create-apple-m1.sh
+$ ./scripts/enter-in-apple-m1.sh
+Last login: Wed Nov 20 16:22:10 2024
+m1@bb34d8ef-6305-4104-801c-1cf1b6b0f99f ~ % uname -a
+Darwin bb34d8ef-6305-4104-801c-1cf1b6b0f99f 23.4.0 Darwin Kernel Version 23.4.0: Fri Mar 15 00:12:41 PDT 2024; root:xnu-10063.101.17~1/RELEASE_ARM64_T8103 arm64
+```
+
+It is also possible to connect to the server via VNC:
+
+```sh
+$ ./scripts/open-vnc.sh
+```
+
+Teardown:
+
+```sh
+$ ./scripts/destroy-apple-m1.sh
+```
+
