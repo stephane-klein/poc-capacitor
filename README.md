@@ -81,6 +81,12 @@ It is also possible to connect to the server via VNC:
 $ ./scripts/open-vnc.sh
 ```
 
+Launches automatic installation script for iOS Capacitor requirements:
+
+```sh
+$ ./scripts/deploy-ios-requirements.sh
+```
+
 Teardown:
 
 ```sh
