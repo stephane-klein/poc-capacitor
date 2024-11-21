@@ -4,6 +4,7 @@ set -e
 cd "$(dirname "$0")/../"
 
 SERVER_IP=$(./scripts/apple-m1-get-ip.sh)
+ssh-keygen -R ${SERVER_IP}
 ssh-keyscan -H ${SERVER_IP} >> ~/.ssh/known_hosts
 
 SERVER_ID=$(scw apple-silicon server list -o json | jq -r '.[] | select(.name == "capacitor") | .id')

@@ -13,10 +13,10 @@ On Fedora, follow these instructions:
 ```sh
 $ dnf install -y dnf-plugins-core
 $ dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
-$ dnf install -y mise jq yq java-21-openjdk-devel java-21-openjdk remmina remmina-plugins-vnc
+$ dnf install -y mise jq yq remmina remmina-plugins-vnc
 ```
 
-## Getting started
+## Install Capacitor requirements
 
 ### Android requirements installation
 
@@ -37,24 +37,8 @@ $ avdmanager create avd \
     --device "pixel"
 ```
 
-### Start Android emulator device
 
-Before running the `npx cap run android` command, as described later in this README, you must to launch an Android terminal emulator.  
-To launch this terminal, run the following command and wait about 1min for the device to be ready.
-
-```sh
-$ $ANDROID_HOME/emulator/emulator -avd Pixel_Emulator
-```
-
-### Launch app mobile in Android emulator
-
-```sh
-$ npm install
-$ npx cap sync
-$ npx cap run android
-```
-
-### iOS requirements installation
+### iOS requirements installation on (Scaleway Apple Silicon)
 
 ```
 $ cp .secret.tmpl .secret
@@ -93,3 +77,80 @@ Teardown:
 $ ./scripts/destroy-apple-m1.sh
 ```
 
+## How to code on the project?
+
+You can make changes in `src/`, test the application locally in a browser with `npm run start`…
+
+Then, when you want to test your work in an iOS or Android emulator, you need to update the contents
+of the `android/` and `ios/` folders with the command:
+
+```sh
+$ npx cap sync
+```
+
+### Launch application on Android
+
+#### Start Android emulator device
+
+Before running the `npx cap run android` command, as described later in this README, you must to launch an Android terminal emulator.  
+To launch this terminal, run the following command and wait about 1min for the device to be ready.
+
+```sh
+$ $ANDROID_HOME/emulator/emulator -avd Pixel_Emulator
+```
+
+#### Build and launch app mobile in Android emulator
+
+```sh
+$ npm install
+$ npx cap sync
+$ npx cap run android
+```
+
+### Launch application on iOS
+
+```sh
+$ ./scripts/upload-project-to-apple-m1.sh
+```
+
+#### Start iOS emulator device
+
+```sh
+$ ./scripts/enter-in-apple-m1.sh
+$ export DEVICE_UDID=$(xcrun simctl list devices -j | jq -r '.devices["com.apple.CoreSimulator.SimRuntime.iOS-17-5"][] | select(.name == "iPhone 15") | .udid')
+$ xcrun simctl boot $DEVICE_UDID
+```
+#### Build and launch app mobile in iOS emulator
+
+```sh
+$ ./scripts/enter-in-apple-m1.sh
+$ cd projet
+$ mise install
+$ npm install
+$ npx cap sync
+$ npx cap run ios --target="${DEVICE_UDID}"
+```
+
+See device simulator in VNC:
+
+```sh
+$ ./scripts/open-vnc.sh
+```
+
+<img src="screenshots/ios-device-emulator-in-vnc.png" />
+
+#### What should I do if I've modified the source code on my workstation?
+
+On your workstation, execute:
+
+```sh
+$ ./scripts/upload-project-to-apple-m1.sh
+```
+
+In *apple-m1 server*, execute:
+
+```
+$ npm install # optional
+$ npx cap sync
+$ npx cap run ios --target="${DEVICE_UDID}"
+```

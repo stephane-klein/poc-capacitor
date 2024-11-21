@@ -1,5 +1,6 @@
 [tools]
 node = "20.18.0"
+java = "openjdk-17" # https://developer.android.com/build/jdks?hl=fr#compileSdk
 android-sdk = "16.0"
 scaleway-cli = "2.34.0"
 direnv = "2.35.0"
