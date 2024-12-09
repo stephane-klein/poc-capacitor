@@ -16,6 +16,18 @@ $ dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
 $ dnf install -y mise jq yq remmina remmina-plugins-vnc
 ```
 
+## Develop the application locally, directly in a browser
+
+To contribute to the application, you don't need to run it in an Android or iOS emulator.
+You can do most of your work directly in your browser, without any additional dependencies.
+
+```sh
+$ npm install
+$ npm run start
+```
+
+Open your browser on http://localhost:5173
+
 ## Install Capacitor requirements
 
 ### Android requirements installation
