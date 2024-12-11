@@ -46,7 +46,7 @@ $ sdkmanager --install \
     "build-tools;35.0.0" \
     "cmdline-tools;16.0" \
     "platforms;android-29" \
-    "system-images;android-29;google_apis_playstore;x86_64"
+    "system-images;android-31;google_apis_playstore;x86_64"
 $ avdmanager create avd \
     --name Pixel_Emulator \
     --package "system-images;android-31;google_apis_playstore;x86_64" \
