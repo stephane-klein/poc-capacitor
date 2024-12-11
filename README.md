@@ -28,6 +28,8 @@ $ npm run start
 
 Open your browser on http://localhost:5173
 
+Edit web application source code in [`./src/`](./src/).
+
 ## Install Capacitor requirements
 
 ### Android requirements installation
