@@ -2,6 +2,8 @@
 
 See this note in french: https://notes.sklein.xyz/Projet%2017/
 
+Mobile application built with Capacitor, which simply opens a *webview* that redirects to an online site (defined by `START_URL` variable environement).
+
 ## Prerequisite
 
 - [Mise](https://mise.jdx.dev/installing-mise.html)
@@ -23,7 +25,7 @@ You can do most of your work directly in your browser, without any additional de
 
 ```sh
 $ npm install
-$ npm run start
+$ START_URL=https://sklein.xyz npm run start
 ```
 
 Open your browser on http://localhost:5173
@@ -99,7 +101,7 @@ Then, when you want to test your work in an iOS or Android emulator, you need to
 of the `android/` and `ios/` folders with the command:
 
 ```sh
-$ npx cap sync
+$ npm run sync
 ```
 
 ### Launch application on Android
@@ -117,7 +119,7 @@ $ $ANDROID_HOME/emulator/emulator -avd Pixel_Emulator
 
 ```sh
 $ npm install
-$ npx cap sync
+$ npm run sync
 $ npx cap run android
 ```
 
@@ -141,7 +143,7 @@ $ ./scripts/enter-in-apple-m1.sh
 $ cd projet
 $ mise install
 $ npm install
-$ npx cap sync
+$ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```
 
@@ -165,6 +167,6 @@ In *apple-m1 server*, execute:
 
 ```
 $ npm install # optional
-$ npx cap sync
+$ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```

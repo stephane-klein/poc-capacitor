@@ -3,7 +3,8 @@
   "scripts": {
     "start": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "gomplate -f capacitor.config.json.tmpl -o capacitor.config.json ; cap sync"
   },
   "dependencies": {
     "@capacitor/android": "6.1.2",

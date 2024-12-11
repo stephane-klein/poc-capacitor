@@ -2,9 +2,12 @@
   "appId": "com.example.app",
   "appName": "poc",
   "webDir": "dist",
+  "server": {
+    "allowNavigation": {{ .Env.ALLOW_NAVIGATION }}
+  },
   "plugins": {
     "SplashScreen": {
-      "launchAutoHide": false
+      "launchAutoHide": true
     }
   }
 }
