@@ -170,3 +170,17 @@ $ npm install # optional
 $ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```
+
+#### Regenerate `android` and `ios` folders
+
+If you're updating the `@capacitor/android` or `@capacitor/ios` packages, I think it's a good idea to regenerate the `android` and `ios` folders:
+
+```sh
+$ rm -rf android
+$ npx cap add android
+```
+
+```sh
+$ rm -rf ios
+$ npx cap add ios
+```
