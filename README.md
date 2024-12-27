@@ -119,6 +119,7 @@ $ $ANDROID_HOME/emulator/emulator -avd Pixel_Emulator
 
 ```sh
 $ npm install
+$ npm run build
 $ npm run sync
 $ npx cap run android
 ```
@@ -143,6 +144,7 @@ $ ./scripts/enter-in-apple-m1.sh
 $ cd projet
 $ mise install
 $ npm install
+$ npm run build
 $ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```
