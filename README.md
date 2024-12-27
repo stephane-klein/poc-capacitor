@@ -171,7 +171,7 @@ $ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```
 
-#### Regenerate `android` and `ios` folders
+#### How to regenerate `android` and `ios` folders
 
 If you're updating the `@capacitor/android` or `@capacitor/ios` packages, I think it's a good idea to regenerate the `android` and `ios` folders:
 
