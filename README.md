@@ -184,3 +184,21 @@ $ npx cap add android
 $ rm -rf ios
 $ npx cap add ios
 ```
+
+#### How to regenerate Logo assets?
+
+To change the application logo, you can edit the files in `./assets/`.
+
+Then run the following command:
+
+```sh
+$ npx capacitor-assets generate
+```
+
+This command generates all assets in the following folders:
+
+- `./android/app/src/main/res/`
+- `./ios/App/App/Assets.xcassets/`
+- `./src/assets/`
+
+For more information, see: https://github.com/ionic-team/capacitor-assets
