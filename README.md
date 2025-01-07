@@ -248,3 +248,13 @@ This command generates all assets in the following folders:
 - `./src/assets/`
 
 For more information, see: https://github.com/ionic-team/capacitor-assets
+
+#### How to View console.log Messages in the Android Emulator?
+
+Open `` in Chrome, and you see:
+
+<img src="screenshots/chrome-inspect.png" />
+
+Click "inspect" on "My supper app".
+
+Then you can inspect the Capacitor application running in the emulator, just as you would with a conventional website.
