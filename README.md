@@ -37,7 +37,6 @@ Edit web application source code in [`./src/`](./src/).
 ### Android requirements installation
 
 ```sh
-$ mise plugins install android-sdk https://github.com/Syquel/mise-android-sdk.git
 $ mise install
 $ rehash
 $ sdkmanager --install \
