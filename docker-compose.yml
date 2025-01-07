@@ -4,4 +4,4 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./dummy-website/:/usr/share/nginx/html/
+      - ./dummy-website/:/usr/share/nginx/html/:ro
