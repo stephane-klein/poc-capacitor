@@ -5,5 +5,8 @@ android-sdk = "16.0"
 scaleway-cli = "2.34.0"
 direnv = "2.35.0"
 gomplate = "v3.11.7"
-[plugins]
+cloudflared = "2024.12.2"
+
+[alias]
 android-sdk = "https://github.com/Syquel/mise-android-sdk.git"
+cloudflared = "https://github.com/threkk/asdf-cloudflared.git"

@@ -4,6 +4,9 @@ See this note in french: https://notes.sklein.xyz/Projet%2017/
 
 Mobile application built with Capacitor, which simply opens a *webview* that redirects to an online site (defined by `START_URL` variable environement).
 
+The Capacitor application in this POC displays the content of a demonstration website, with the HTML content located in the `./dummy-website/` folder.  
+This website is served by an HTTP Nginx server, launched using `docker-compose.yml`.
+
 ## Prerequisite
 
 - [Mise](https://mise.jdx.dev/installing-mise.html)
@@ -18,6 +21,48 @@ $ dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
 $ dnf install -y mise jq yq remmina remmina-plugins-vnc
 ```
 
+## Start dummy website http server
+
+Starting the Nginx service:
+
+```sh
+$ docker compose up -d --wait
+```
+
+## Expose dummy website on Internet
+
+Why?  
+The Android and iOS emulators do not have direct and easy access to the HTTP service (dummy website) exposed on `http://localhost:8080`.
+
+To overcome this issue, I use [`cloudflared tunnel`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/).  
+You can also use other solutions, such as [Sish](https://docs.ssi.sh/) or [ngrok Developer Preview](https://ngrok.com/use-cases/developer-preview).  
+For more information, you can refer to the following note (in French): https://notes.sklein.xyz/2025-01-06_2105/zen/
+
+```sh
+$ ./scripts/start-cloudflare-http-tunnel.sh
+Starting the tunnel...
+…wait… …wait… …wait…
+Tunnel started successfully: https://moral-clause-interesting-broadway.trycloudflare.com
+```
+
+Next, load the environment variables that will be used by capacitor to find out where the site to be shown is?
+
+```
+$ source ./scripts/load-variables.sh
+Variables loaded:
+
+START_URL=https://moral-clause-interesting-broadway.trycloudflare.com
+ALLOW_NAVIGATION=moral-clause-interesting-broadway.trycloudflare.com
+```
+
+To stop the tunnel, you can execute:
+
+```sh
+$ ./scripts/stop-cloudflare-http-tunnel.sh
+Stopping the tunnel (PID: 673143)...
+Tunnel stopped successfully.
+```
+
 ## Develop the application locally, directly in a browser
 
 To contribute to the application, you don't need to run it in an Android or iOS emulator.
@@ -25,7 +70,7 @@ You can do most of your work directly in your browser, without any additional de
 
 ```sh
 $ npm install
-$ START_URL=https://sklein.xyz npm run start
+$ npm run start
 ```
 
 Open your browser on http://localhost:5173
