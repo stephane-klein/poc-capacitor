@@ -7,6 +7,10 @@ PID_FILE="./.cloudflared_tunnel.pid"
 LOG_FILE="./.cloudflared_tunnel.log"
 TUNNEL_URL_FILE="./.cloudflared_tunnel_url"
 
+rm -f $PID_FILE
+rm -f $LOG_FILE
+rm -f $TUNNEL_URL_FILE
+
 # Maximum time to wait for the tunnel to generate the URL (in seconds)
 MAX_WAIT_TIME=15
 CHECK_INTERVAL=2

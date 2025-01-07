@@ -5,3 +5,8 @@ capacitor.config.json
 .cloudflared_tunnel.log
 .cloudflared_tunnel.pid
 .cloudflared_tunnel_url
+keystore
+dummy-website/.well-known/assetlinks.json
+android/app/src/main/AndroidManifest.xml
+android/app/build.gradle
+android/app/src/main/res/values/strings.xml

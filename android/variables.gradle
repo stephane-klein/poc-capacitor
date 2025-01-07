@@ -1,5 +1,7 @@
 ext {
-    minSdkVersion = 22
+    // 26 needed for @capacitor/inappbrowser plugin
+    // https://capacitorjs.com/docs/apis/inappbrowser#:~:text=the%20inappbrowser%20plugin%20requires%20a%20minimum%20android%20sdk%20target%20of%2026
+    minSdkVersion = 26
     compileSdkVersion = 34
     targetSdkVersion = 34
     androidxActivityVersion = '1.8.0'

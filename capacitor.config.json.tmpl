@@ -1,6 +1,6 @@
 {
-  "appId": "com.example.app",
-  "appName": "poc",
+  "appId": "{{ .Env.PACKAGE_NAME }}",
+  "appName": "{{ .Env.APP_NAME }}",
   "webDir": "dist",
   "server": {
     "allowNavigation": "{{ .Env.ALLOW_NAVIGATION }}"

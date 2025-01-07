@@ -4,18 +4,19 @@
     "start": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "sync": "gomplate -f capacitor.config.json.tmpl -o capacitor.config.json ; cap sync"
+    "sync": "cap sync"
   },
   "dependencies": {
-    "@capacitor/android": "6.1.2",
-    "@capacitor/camera": "6.1.0",
-    "@capacitor/core": "6.1.2",
-    "@capacitor/ios": "6.1.2",
-    "@capacitor/splash-screen": "6.0.2"
+    "@capacitor/android": "6.2.0",
+    "@capacitor/app": "6.0.2",
+    "@capacitor/core": "6.2.0",
+    "@capacitor/inappbrowser": "1.0.1",
+    "@capacitor/ios": "6.2.0",
+    "@capacitor/splash-screen": "6.0.3"
   },
   "devDependencies": {
-    "@capacitor/assets": "^3.0.5",
-    "@capacitor/cli": "6.1.2",
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "6.2.0",
     "vite": "5.4.11"
   }
 }

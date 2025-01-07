@@ -1,4 +1,4 @@
-package com.example.app;
+package xyz.sklein.myapp;
 
 import com.getcapacitor.BridgeActivity;
 
