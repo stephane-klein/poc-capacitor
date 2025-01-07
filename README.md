@@ -217,6 +217,8 @@ $ npm run sync
 $ npx cap run ios --target="${DEVICE_UDID}"
 ```
 
+### Tips and tricks
+
 #### How to regenerate `android` and `ios` folders
 
 If you're updating the `@capacitor/android` or `@capacitor/ios` packages, I think it's a good idea to regenerate the `android` and `ios` folders:
@@ -258,3 +260,21 @@ Open `` in Chrome, and you see:
 Click "inspect" on "My supper app".
 
 Then you can inspect the Capacitor application running in the emulator, just as you would with a conventional website.
+
+`adb logcat` is a valuable tool for debugging as it provides access to the complete event logs of the Android emulator.
+It offers a detailed view of the system logs, which can be useful for diagnosing issues and monitoring the behavior of the application.
+
+#### Android package management
+
+List packages installed in the Android emulator:
+
+```sh
+$ adb shell pm list packages
+...
+```
+
+Uninstall a package:
+
+```sh
+$ adb uninstall xyz.sklein.myapp
+```
