@@ -7,6 +7,18 @@ Mobile application built with Capacitor, which simply opens a *webview* that red
 The Capacitor application in this POC displays the content of a demonstration website, with the HTML content located in the `./dummy-website/` folder.  
 This website is served by an HTTP Nginx server, launched using `docker-compose.yml`.
 
+## Here are the elements tested and implemented in this POC
+
+Application capacity :
+
+- Application icon configuration (with [`@capacitor/assets`](https://github.com/ionic-team/capacitor-assets))
+- SplashScreen image configuration (with [`@capacitor/assets`](https://github.com/ionic-team/capacitor-assets))
+
+Build and usage test:
+
+- Create and test the application on Android in the Android emulator
+- Application creation and testing on iOS via Scaleway Apple Silicon hosting instance
+
 ## Prerequisite
 
 - [Mise](https://mise.jdx.dev/installing-mise.html)
