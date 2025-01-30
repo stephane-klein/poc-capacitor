@@ -12,12 +12,12 @@ if ! command -v brew &> /dev/null; then
 fi
 
 touch ~/.zprofile
-if ! grep -q 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zprofile; then
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+if ! grep -q 'eval "$(/opt/homebrew/bin/brew shellenv)"' ~/.zshenv; then
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshenv
 fi
 
-if ! grep -q 'export LANG=en_US.UTF-8' ~/.zprofile; then
-  echo 'export LANG=en_US.UTF-8' >> ~/.zprofile
+if ! grep -q 'export LANG=en_US.UTF-8' ~/.zshenv; then
+  echo 'export LANG=en_US.UTF-8' >> ~/.zshenv
 fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -28,10 +28,11 @@ brew outdated
 
 brew install cocoapods rsync mise yq xcodesorg/made/xcodes aria2 nvim jq
 
-grep -qxF 'export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home"' ~/.zprofile || echo 'export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home"' >> ~/.zprofile
-grep -qxF 'export PATH="$JAVA_HOME/bin:$PATH"' ~/.zprofile || echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.zprofile
+grep -qxF 'export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home"' ~/.zprofile || echo 'export JAVA_HOME="$(brew --prefix openjdk)/libexec/openjdk.jdk/Contents/Home"' >> ~/.zshenv
+grep -qxF 'export PATH="$JAVA_HOME/bin:$PATH"' ~/.zprofile || echo 'export PATH="$JAVA_HOME/bin:$PATH"' >> ~/.zshenv
+command -v mise &> /dev/null && ! grep -qxF 'eval "$(mise activate zsh)"' ~/.zshenv && echo 'eval "$(mise activate zsh)"' >> ~/.zshenv
 
-command -v mise &> /dev/null && ! grep -qxF 'eval "$(mise activate zsh)"' ~/.zprofile && echo 'eval "$(mise activate zsh)"' >> ~/.zprofile
+eval "$(mise activate zsh)"
 
 mise plugins install android-sdk https://github.com/Syquel/mise-android-sdk.git
 sudo arch -x86_64 gem install ffi
